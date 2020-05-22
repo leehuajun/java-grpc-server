@@ -1,0 +1,19 @@
+syntax="proto3";
+package service;
+option go_package="api;service";
+option java_package="com.sunjet.rpc.api";
+
+message BookRequest {
+  int32 book_id=1;
+}
+
+message BookResponse{
+  int32 book_id=1;
+  string book_isbn=2;
+  string book_name=3;
+  double book_price=4;
+}
+
+service BookService {
+    rpc getBookById(BookRequest) returns (BookResponse);
+}
